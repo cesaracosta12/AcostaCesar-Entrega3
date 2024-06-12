@@ -16,7 +16,18 @@
                 <h1> CARGAR NUEVO</h1>
             </div>
             <div>
-
+                <form action={%url "cargarnuevo"%} method = "POST">
+                    {% csrf_token %}
+                    <div class="featurs-content text-center">
+                        <h6 class="text-light mb-3"> Nombre {{formulario.nombre}}<br></h6>
+                        <h6 class="text-light mb-3"> Apellido {{formulario.apellido}}<br></h6>
+                        <h6 class="text-light mb-3"> DNI {{formulario.dni}}<br></h6>
+                        <h6 class="text-light mb-3"> edad {{formulario.edad}}<br></h6>
+                        <h6 class="text-light mb-3"> direccion {{formulario.direccion}}<br></h6>
+                        <h6 class="text-light mb-3"> especialidad {{formulario.especialidad}}<br></h6>
+                        <input type="submit" value="Registrar persona" ></input>
+                    </div>
+                </form>
             </div>
 
         {% endblock main %}
