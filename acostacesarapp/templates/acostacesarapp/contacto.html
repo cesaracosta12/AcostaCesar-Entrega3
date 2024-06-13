@@ -1,31 +1,36 @@
 {% extends "base.html" %}
-<!DOCTYPE html>
-<html lang="en">
-    {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block titulo %}
-        <title>Contacto</title>
-    {% endblock titulo %}
-</head>
-<body>
-    <main>
-        {% block main %}
-        <header class="py-5">
-            <div class="container px-lg-5">
-                <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-                    <div class="m-4 m-lg-5">
-                        <h1 class="display-5 fw-bold">Acosta Cesar Oscar</h1>
-                        <p class="fs-4">informacion de CV</p>
-                        <a class="btn btn-primary btn-lg" href="#!">Call to action</a>
+{% load static %}
+{% block titulo %}
+    <title>Contacto</title>
+{% endblock titulo %}
+{% block main %}
+    <body>
+        <main>
+            <header class="py-5">
+                <div class="container px-lg-5">
+                    <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+                        <div class="m-4 m-lg-5">
+                            <h1 class="display-5 fw-bold">Acosta Cesar Oscar</h1>
+                            <div style="display: flex; justify-content: center;">
+
+                                <img src={% static "assets/profile_picture.jpg" %} alt="center" style="border-radius: 34px 34px 34px 34px;width: 180px; height: 240px;">
+                            </div>
+                            <p class="fs-4">
+                                Hola mi nombre es Cesar Acosta, vivo en Cordoba Capital y tengo 30 años. <br>
+                                Soy Analista de testing QA Manual y Automation SemiSenior <br>
+                                Este es mi primer curso de programacion en Python y me esta gustando mucho. <br>
+                                Estoy en busqueda laboral, ya sea como analista de testing o para comenzar como programador. <br>
+                                <br>
+                                Dejo aqui mis datos de contacto por si me queres dar una mano: <br>
+                                <i class='bx bx-envelope' ></i> Correo: ocesaracosta@gmail.com <br>
+                                <i class='bx bxs-phone' ></i> Telefono: (549) 3513855340 <br>
+                                <i class='bx bx-current-location' ></i> Ubicacion: Cordoba, Cordoba, Argentina <br>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </header>
-        {% endblock main %}
-     </main>
-    
+            </header>
+        </main>
 
-</body>
-</html>
+    </body>
+{% endblock main %}

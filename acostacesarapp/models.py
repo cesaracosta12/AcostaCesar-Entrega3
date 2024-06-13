@@ -6,8 +6,10 @@ class Persona(models.Model):
     apellido = models.CharField(max_length=40)
     dni= models.IntegerField()
     edad= models.IntegerField()
-    correo = models.CharField(max_length=20)
+    correo = models.EmailField(max_length=20)
+    telefono = models.CharField(max_length=50,default='-')
     direccion =  models.CharField(max_length=50)
-    especialidad = models.CharField(max_length=40)
-    estado = models.BooleanField(default=True)
+    especialidad = models.CharField(max_length=40,null=False,blank=False,error_messages="")
+    matricula = models.IntegerField(default=0)
+
     

@@ -1,29 +1,53 @@
 {% extends "base.html" %}
 {% load static %}
 {% block titulo %}
-    <title>Nuevo</title>
+    <title>Registra tus datos</title>
 {% endblock titulo %}
+
 {% block main %}
-    <body>
-        <main>
-            <div>
-                <h1> CARGAR NUEVO</h1>
+<body>
+    <main>
+        <div class="container py-5 px-lg-5">
+            <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+                <h1 class="display-5 fw-bold">Registra tus datos</h1>
             </div>
-            <div>
-                <form action={%url "cargarnuevo"%} method = "post">
-                    {% csrf_token %}
-                    <div class="featurs-content text-center">
-                        <h6 class="text-light mb-3"> Nombre : {{formulario.nombre}}<br></h6>
-                        <h6 class="text-light mb-3"> Apellido : {{formulario.apellido}}<br></h6>
-                        <h6 class="text-light mb-3"> DNI : {{formulario.dni}}<br></h6>
-                        <h6 class="text-light mb-3"> edad : {{formulario.edad}}<br></h6>
-                        <h6 class="text-light mb-3"> direccion : {{formulario.direccion}}<br></h6>
-                        <h6 class="text-light mb-3"> especialidad : {{formulario.especialidad}}<br></h6>
-                        
-                        <input type="submit" value="Registrar persona" ></input>
-                    </div>
-                </form>
-            </div>
-        </main>
-    </body>
+        </div>
+    <section class="pt-4">
+        <div class="container py-5 px-lg-5">
+        <div class="container p-4 p-lg-5 bg-light rounded-3">    
+                    <form action={%url "cargarnuevo"%} method = "post">
+                        {% csrf_token %}
+                        <div class="featurs-content ">
+                            <div class= "text-dark text-right">
+                                <h5 class="mb-3"><i class='bx bxs-contact' style='color:#470b60' ></i> Datos personales <br></h5>
+                                <div>
+                                    <h6 class="mb-3"> Nombre : {{formulario.nombre}}<br></h6>
+                                    <h6 class="mb-3"> Apellido : {{formulario.apellido}}<br></h6>
+                                    <h6 class="mb-3"> DNI : {{formulario.dni}}<br></h6>
+                                    <h6 class="mb-3"> Edad : {{formulario.edad}}<br></h6>
+                                </div>
+                                <h5 class="mb-3"><i class='bx bxs-phone' style='color:#470b60' ></i> Informacion de contacto <br></h5>
+                                <div>
+                                    <h6 class="mb-3"> Correo : {{formulario.correo}}<br></h6>
+                                    <h6 class="mb-3"> Telefono : {{formulario.telefono}}<br></h6>
+                                    <h6 class="mb-3"> Direccion : {{formulario.direccion}}<br></h6>
+                                </div>
+                                <h5 class="mb-3"><i class='bx bxs-briefcase-alt-2' style='color:#470b60'  ></i> Especialidad <br></h5>
+                                <div>
+                                    <h6 class="mb-3"> Especialidad : {{formulario.especialidad}}<br></h6>
+                                    <h6 class="mb-3"> Matricula : {{formulario.matricula}}<br></h6>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="submit" value="Registrar persona" class="btn btn-primary btn-lg" ></input>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+<div></div>
+        </section>
+    </main>
+</body>
+<div></div>
 {% endblock main %}
+<div></div>

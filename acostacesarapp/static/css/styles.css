@@ -2846,10 +2846,10 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
-  --bs-btn-color: #85c3fc;
-  --bs-btn-bg: #e0d9fc;
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: #c567bf;
   --bs-btn-border-color: #5a37ad;
-  --bs-btn-hover-color: #c595d8;
+  --bs-btn-hover-color: ##a56daf;
   --bs-btn-hover-bg: #f5d2ff;
   --bs-btn-hover-border-color: #9340b4;
   --bs-btn-focus-shadow-rgb: 49, 132, 253;
