@@ -19,7 +19,7 @@ class CrearPersonaFormulario(forms.Form):
     apellido = forms.CharField(max_length=40,required=True)
     dni= forms.IntegerField(required=True)
     edad= forms.IntegerField()
-    correo = forms.EmailField(max_length=20,required=True)
+    correo = forms.EmailField(max_length=40)
     telefono = forms.CharField(max_length=50)
     direccion =  forms.CharField(max_length=50)
     especialidad = forms.ChoiceField(choices=especialidad_opciones )
