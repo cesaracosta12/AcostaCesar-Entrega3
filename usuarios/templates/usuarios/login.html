@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    <title>Iniciar Sesion</title>
+{% endblock titulo %}
+
+<body>
+    <main>
+        {% block main %}
+        <header class="py-5">
+            <div class="container px-lg-5">
+                <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
+                    <div class="m-4 m-lg-5">
+                        <h3>Iniciar Sesion</h3>
+                        <form action={% url "login" %} method="POST" >
+                            {% csrf_token %}
+                            {{formulario_login}}
+                            <input type="submit" value="Iniciar Sesion">
+                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>        
+        {% endblock main %}
+    </main>
+</body>

@@ -2,8 +2,11 @@ from django.shortcuts import render,redirect
 from .models import Persona
 from .forms import CrearPersonaFormulario,BuscarPorEspecialidad
 # Create your views here.
-def inicio(request):
-    return render(request,'acostacesarapp/index.html')
+def inicio(request):  
+    if request.user.is_authenticated:
+        return render(request,'acostacesarapp/index_user_auth.html')
+    else:
+        return render(request,'acostacesarapp/index.html')
 
 def contacto(request):
     return render(request,'acostacesarapp/contacto.html')
