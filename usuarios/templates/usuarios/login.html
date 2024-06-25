@@ -16,8 +16,8 @@
                         <form action={% url "login" %} method="POST" >
                             {% csrf_token %}
                             {{formulario_login}}
-                            <input type="submit" value="Iniciar Sesion">
-                        
+                            <br>
+                            <input type="submit" class="btn btn-primary" value="Iniciar Sesion">
                         </form>
                     </div>
                 </div>

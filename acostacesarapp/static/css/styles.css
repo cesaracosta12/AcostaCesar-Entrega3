@@ -11560,3 +11560,9 @@ textarea.form-control-lg {
   width: 4rem;
   font-size: 2rem;
 }
+
+.miscolumnas {
+  display: flex;
+  padding: 20px;
+  margin: 10px;
+}
