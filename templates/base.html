@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         {% block titulo %}
-            <title>3ra Entrega</title>
+            <title>Entrega FINAL</title>
         {% endblock titulo %}
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href= {% static "assets/favicon.ico" %} />
@@ -25,7 +25,7 @@
                         <i class='bx bxs-star' style='color:#7dcbc0'></i>
                         <i class='bx bxs-star' style='color:#ffff'  ></i>
                         <i class='bx bxs-star' style='color:#7dcbc0'></i> 
-                        La Tercera Entrega
+                        Laburo Argentino
                     </h5>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -36,7 +36,14 @@
                         <li class="nav-item"><a class="nav-link active" href={% url "contacto" %}>Contacto</a> </li>
                         {% if request.user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="btn btn-primary" href={% url "verperfil" %}><i class='bx bxs-user-circle'></i> {{request.user.username}}</a>
+                            <a class="btn btn-primary" href={% url "verperfil" %}> 
+                                {% if request.user.datosusuario.avatar %}
+                                <img src={{request.user.datosusuario.avatar.url}} alt="avatar" class="navavatar" height="20px" > 
+                                {% else %}
+                                <i class='bx bxs-user-circle' ></i> 
+                                {% endif %}
+                                {{request.user.username}}
+                            </a>
                         </li>
                         <li class="nav-item">        
                             <form action={% url "logout" %} method="POST">
@@ -65,8 +72,8 @@
                 <div class="row gx-lg-5">               
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="container text-white">
-                            <h5>Entrega 3</h5>
-                            <p class="m-0 text-right text-white">Este <a href="https://github.com/cesaracosta12/AcostaCesar-Entrega3" target="_blank">proyecto</a> esta dedicado a la tercera entrega del curso de programacion en Python de 
+                            <h5>Entrega Proyecto Final</h5>
+                            <p class="m-0 text-right text-white">Este <a href="https://github.com/cesaracosta12/AcostaCesar-Entrega3" target="_blank">proyecto</a> esta dedicado a la entrega final del curso de programacion en Python de 
                             <a href="https://www.coderhouse.com/">CoderHouse</a></p>
                         </div>
                     </div>
@@ -76,7 +83,7 @@
                             <i class='bx bxs-star' style='color:#7dcbc0'></i>
                             <i class='bx bxs-star' style='color:#ffff'></i>
                             <i class='bx bxs-star' style='color:#7dcbc0'></i> 
-                            <h5>La Tercera Entrega</h5>
+                            <h5>Laburo Argentino</h5>
                             </a>
                         </div>
                     </div>

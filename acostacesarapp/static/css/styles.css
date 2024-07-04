@@ -4152,7 +4152,7 @@ textarea.form-control-lg {
 
 .card {
   --bs-card-spacer-y: 1rem;
-  --bs-card-spacer-x: 1rem;
+  --bs-card-spacer-x: 3rem;
   --bs-card-title-spacer-y: 0.5rem;
   --bs-card-border-width: 1px;
   --bs-card-border-color: var(--bs-border-color-translucent);
@@ -4165,7 +4165,9 @@ textarea.form-control-lg {
   --bs-card-cap-color: ;
   --bs-card-height: ;
   --bs-card-color: ;
-  --bs-card-bg: #8564aa;
+  --bs-link-color: #000000;
+  --bs-link-hover-color: #a366d6;
+  --bs-card-bg: #e8e6ff;
   --bs-card-img-overlay-padding: 1rem;
   --bs-card-group-margin: 0.75rem;
   position: relative;
@@ -4178,6 +4180,7 @@ textarea.form-control-lg {
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
+  text-decoration: none;
 }
 .card > hr {
   margin-right: 0;
@@ -7934,8 +7937,8 @@ textarea.form-control-lg {
 }
 
 .py-5 {
-  padding-top: 3rem !important;
-  padding-bottom: 3rem !important;
+  padding-top: 2rem !important;
+  padding-bottom: 1rem !important;
 }
 
 .pt-0 {
@@ -11565,4 +11568,96 @@ textarea.form-control-lg {
   display: flex;
   padding: 20px;
   margin: 10px;
+}
+
+.navavatar {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: #20c997 solid 2px;
+  object-fit: cover;
+  clip-path: circle(50% at 50% 50%);
+}
+
+.avatar {
+  width: 30% ;
+  border-radius: #20c997 solid 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+  clip-path: circle(50% at 50% 50%);
+}
+
+
+.perfil {
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  border: #fdbae9 solid 5px;
+}
+
+.mibox {
+  display:flex;
+  align-items: stretch;
+  margin-right: auto;
+  margin-left: auto;
+  align-content: space-between;
+}
+
+/* Estilos para la imagen de perfil */
+.profile-image {
+  width: 150px; /* Ancho deseado */
+  height: 150px; /* Altura deseada */
+  border-radius: 50%; /* Forma redonda */
+  object-fit: cover; /* Ajuste para cubrir el contenedor */
+  border: 2px solid #fff; /* Borde blanco */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo para cambiar el cursor al pasar por encima */
+.profile-image:hover {
+  cursor: pointer;
+  opacity: 0.8; /* Reducir opacidad al pasar el cursor */
+}
+
+/* Estilo para el contenedor principal */
+.profile-container {
+  background-color: #f8f9fa; /* Color de fondo */
+  border-radius: 15px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+/* Estilos para el contenido */
+.profile-details {
+  margin-top: 20px; /* Margen superior */
+}
+
+/* Estilos para los encabezados */
+.profile-header {
+  font-size: 24px; /* Tamaño de fuente del encabezado */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Estilos para la lista de detalles */
+.profile-details ul {
+  list-style: none; /* Quitar viñetas de la lista */
+  padding: 0; /* Quitar relleno */
+}
+
+/* Estilos para los elementos de la lista */
+.profile-details li {
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Estilos para los detalles de contacto */
+.profile-contact-details {
+  margin-top: 10px; /* Margen superior */
+}
+
+/* Estilos para el título de los detalles de contacto */
+.profile-contact-details h3 {
+  font-size: 18px; /* Tamaño de fuente */
+  margin-bottom: 10px; /* Margen inferior */
 }

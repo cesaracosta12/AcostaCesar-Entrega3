@@ -15,9 +15,15 @@
                     <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
                         <div class="m-4 m-lg-5">
                             <h3>Registrar Usuario</h3>
-                            <form action={% url "registro" %} method="POST" >
+                            <form action={% url "registro" %} method="POST"  >
                                 {% csrf_token %}
-                                {{formulario_registro}}
+                                <div style="display:inline-block">
+                                    <div style="text-align:left ">
+                                        Nombre de Usuario:   {{formulario_registro.username}} <br>
+                                        Correo electronico:  {{formulario_registro.email}} <br>
+                                        Contraseña :         {{formulario_registro.password1}} <br>
+                                        Repita Contraseña:   {{formulario_registro.password2}} <br>                                    
+                                </div>       
                                 <br>
                                 <input type="submit" class="btn btn-primary" value="Registrar">                                                       
                             </form>

@@ -2,39 +2,43 @@
 {% load static %}
 
 {% block titulo %}
-<title>
-    Mi Perfil
-</title>
+    <title>Mi Perfil</title>
 {% endblock titulo %}
 
-<body>
-    <main>
-        {% block main %}
-            <header class="py-5">
-                <div class="container px-lg-5">
-                    <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
-                        <div class="m-4 m-lg-5">
-                            <h1>Mi Perfil</h1>
+{% block main %}
+    <header class="py-5">
+        <div class="container px-lg-5">
+            <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
+                <h1>Mi Perfil</h1>
+            </div>
+        </div>
+    </header>
+    <section class="py-5">
+        <div class="container px-lg-5">
+            <div class="p-4 p-lg-3 bg-light rounded-3 text-right profile-container" style="padding: 2rem;">
+                <a href={% url "inicio" %} class="btn btn-secondary mb-3"> <i class='bx bx-chevron-left'></i></a>
+                <div class="row">
+                    <div class="col-md-3">
+                        {% if request.user.datosusuario.avatar %}
+                            <img src="{{ request.user.datosusuario.avatar.url }}" class="profile-image">
+                        {% else %}
+                            <i class='bx bxs-user-circle avatar'></i>
+                        {% endif %}
+                        <br>
+                        <a style="margin-left:1em" class="btn btn-primary mt-3" href="{% url 'editarperfil' %}">Editar Perfil</a>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="m-4">
+                            <ul class="list-unstyled profile-details">
+                                <li><strong>Nombre de Usuario:</strong> {{ request.user.username }}</li>
+                                <li><strong>Nombre:</strong> {{ request.user.first_name }}</li>
+                                <li><strong>Apellido:</strong> {{ request.user.last_name }}</li>
+                                <li><strong>Correo:</strong> {{ request.user.email }}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </header> 
-            <header class="py-5">
-                <div class="container px-lg-5">
-                    <div class="p-4 p-lg-3 bg-light rounded-3 text-right">
-                        <div class="m-4 m-lg-5">
-                                Nombre de Usuario :  {{request.user.username}} <br>
-                                Nombre : {{request.user.first_name}} <br>
-                                Apellido : {{request.user.last_name}} <br>
-                                Correo : {{request.user.email}} <br>
-                            </div>
-                            <div class="m-4 m-lg-5 ">
-                                <a class="btn btn-primary" href={% url "editarperfil" %} >Editar Perfil</a>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </header> 
-        {% endblock main %}
-    </main>
-</body>
+            </div>
+        </div>
+    </section>
+{% endblock main %}

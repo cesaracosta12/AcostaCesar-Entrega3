@@ -6,11 +6,13 @@
 {% block main %}
 <body>
     <main>
-        <div class="container py-5 px-lg-5">
-            <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-                <h1 class="display-5 fw-bold">Nuestros de profesionales</h1>
+        <header class="py-5">
+            <div class="container px-lg-5">
+                <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
+                    <h1>Nuestros profesionales</h1>
+                </div>
             </div>
-        </div>
+        </header>
         <div class="container py-1 px-lg-5">
             <div class="container p-1 p-lg-1 bg-light rounded-3">    
                 <form action={% url "listado" %} method="get">
@@ -18,7 +20,7 @@
                         <h5>Buscar</h5>   
                         {{formulariobuscar}}
                         <div class="p-2">
-                            <input type="submit" value="Buscar" class="btn btn-primary"></input>
+                            <input type="submit" value="Buscar" class="btn btn-primary">
                             <a class="btn btn-primary" href={% url "listado" %}>Limpiar búsqueda</a>
                         </div>    
                     </div>
@@ -27,41 +29,43 @@
         </div>
         
         <section class="pt-4">
-        {% if personas %}
-            {% for persona in personas %}
-                <div class="container px-lg-5">
-                    <div class="row gx-lg-12">
-                        <div class="col-lg-12 col-xxl-4 mb-5">
-                            <div class="card bg-light border-0 h-100">
-                                <div class="card-body p-4 p-lg-5 pt-0 pt-lg-0">
-                                    <div class="feature bg-primary bg-gradient rounded-3 mb-4 mt-n4">
-                                        <i class='bx bxs-user' style='color:#470b60' ></i>
+            {% if personas %}
+                {% for persona in personas %}
+                    <div class="container px-lg-5">
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                            <div class="col mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body bg-gradient">
+                                        <a href={% url "detalleprofesional" persona.id %} style="text-decoration:none;">
+                                            <img src="{{ persona.avatar_persona.url }}" alt="avatar_persona" height="20px" class="profile-image" >
+                                            <div class="text-left">
+                                                <h5>{{ persona.apellido }}, {{ persona.nombre }}</h5>
+                                            </div>
+                                            <div class="text-left">
+                                                <b><i class='bx bxs-briefcase-alt-2' style='color:#470b60'></i>   {{ persona.servicio }} <br> 
+                                                    <i class='bx bx-clipboard'style='color:#470b60'></i>   Matrcula {{ persona.matricula }}
+                                                </b>
+                                            </div>
+                                            <p class="mb-2 text-left">
+                                                <i class='bx bxs-phone' style='color:#470b60'></i>   {{ persona.telefono }} <br>
+                                                <i class='bx bx-current-location' style='color:#470b60'></i>   {{ persona.ciudad }}, {{ persona.provincia }}    <br>
+                                                <i class='bx bx-time-five' style='color:#470b60'></i>   {{ persona.disponibilidad }}
+                                            </p>
+                                        </a>    
                                     </div>
-                                    <div class= 'text-right'>
-                                        <h5>{{persona.apellido}}, {{persona.nombre}}</h5>
-                                    </div>
-                                    <div class= "text-right">
-                                        <h6><i class='bx bxs-briefcase-alt-2' style='color:#470b60'></i> {{persona.especialidad}} - N° matricula:{{persona.matricula}}</h6>
-                                    </div>
-                                    <p class="mb-0">
-                                        <i class='bx bx-envelope' style='color:#470b60' ></i> Correo: {{persona.correo}} <br>
-                                        <i class='bx bxs-phone' style='color:#470b60' ></i> Telefono: {{persona.telefono}} <br>
-                                        <i class='bx bx-current-location' style='color:#470b60' ></i> Direccion: {{persona.direccion}}    
-                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                {% endfor %}
+            {% else %}
+                <div class="container py-5 px-lg-5">
+                    <div class="container p-5 p-lg-5 bg-light rounded-3 text-dark text-center">  
+                        <h3>Lo sentimos :( </h3>
+                        <h4>No se encontraron profesionales</h4>
+                    </div>
                 </div>
-            {% endfor %}        
-        {% else %}
-            <div class="container py-5 px-lg-5">
-                <div class="container p-5 p-lg-5 bg-light rounded-3 text-dark text-center">  
-                    <h3>Lo sentimos :C</h3>
-                    <h4>No se encontraron profesionales </h4>
-                </div>
-            </div>
-        {% endif %}
+            {% endif %}
         </section>
     </main>
 </body>
