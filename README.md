@@ -1,8 +1,16 @@
-# AcostaCesar-Entrega3
-## *** La Tercera Entrega ***
-#### 3ra Entrega del curso de Python - Coder House
+# AcostaCesar-EntregaFinal
+## *** Laburo Argentino ***
+#### Entrega Final del curso de Python - Coder House
 
-Este proyecto esta destinado a cumplir con la tercera entrega del curso de programacion en Python para Coder House.
-El proyecto cuenta con una aplicacion llamada 'acostacesarapp'. Esta aplicacion web le brinda al usuario un listado con la informacion de profesionales que se especializan en diferentes tipos de servicios para ponerse en contacto y satisfacer sus necesidades. La misma cuenta con los datos personales de los profesionales, sus medios de contacto y ubicacion. 
-* Es posible buscar por la 'especialidad' a la cual se dedica el profesional.
-* Ademas le permite al usuario poder registrar sus datos que serán almacenados en nuestra base de datos.
+Este proyecto esta destinado a cumplir con los requerimientos especificados de la entrega final del curso de programacion en Python para Coder House.
+Laburo Argentino es una aplicacion web hecha en Python y usando el framework Django. Esta aplicacion le brinda al usuario un listado de perfiles profesionales de distintas areas donde se detalla la informacion de contacto de cada uno y el usuario puede filtrarlos por el tipo de servicio que esté necesitando. Además, Laburo Argentino le permite a una persona registrar sus datos y formar parte del equipo de profesionales matriculados. 
+
+El proyecto cuenta con una aplicacion llamada *acostacesarapp*. En ella se permite 
+* Registrar una nueva persona(profesional)
+* Mostrar un listado de los mismos 
+* Se ofrece la posibilidad de aplicar un filtro de busqueda por tipo de servicio.
+
+Tambien el proyecto tiene una aplicacion *usuarios* que se encarga de manejar 
+* Creacion/Registro de nuevos usuarios
+* Login/Logout de sesion para cada usuario
+* Editar la informacion de los usuarios y cambiar su contraseña

@@ -5,24 +5,35 @@
     <title>Iniciar Sesion</title>
 {% endblock titulo %}
 
+{% block main %}
 <body>
     <main>
-        {% block main %}
         <header class="py-5">
             <div class="container px-lg-5">
                 <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
+                    <h1>Iniciar sesion</h1>
+                </div>
+            </div>
+        </header>
+        <section class="py-5">
+            <div class="container px-lg-5">
+                <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
-                        <h3>Iniciar Sesion</h3>
                         <form action={% url "login" %} method="POST" >
                             {% csrf_token %}
-                            {{formulario_login}}
+                            <div style="display:inline-block">
+                                <div style="text-align:left ">
+                                    Usuario {{formulario_login.username}} <br>
+                                    Contraseña {{formulario_login.password}} <br>
+                                </div>
+                            </div>         
                             <br>
-                            <input type="submit" class="btn btn-primary" value="Iniciar Sesion">
+                            <input type="submit" class="btn btn-primary btn-lg" style="margin-top: 3rem;"value="Iniciar Sesion">
                         </form>
                     </div>
                 </div>
             </div>
-        </header>        
-        {% endblock main %}
+        </section> 
     </main>
 </body>
+{% endblock main %}

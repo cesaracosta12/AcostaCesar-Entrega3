@@ -7,7 +7,7 @@ class Persona(models.Model):
     dni= models.IntegerField()
     nombre = models.CharField(max_length=40)
     apellido = models.CharField(max_length=40)
-    # fecha_nac= models.DateField(null=True, blank=True,default='1990-01-01')  
+    fecha_nac= models.DateField(null=True, blank=True) 
     nacionalidad = models.CharField(max_length=40,null=False,blank=False,error_messages="")
     
     # avatar
@@ -33,3 +33,9 @@ class Persona(models.Model):
 
     # informacion no visible por ahora
     estado = models.CharField(max_length=50,default='ACTIVO')
+    
+    def edad(self):
+        if self.fecha_nac:
+            hoy = date.today()
+            return hoy.year - self.fecha_nac.year - ((hoy.month, hoy.day) < (self.fecha_nac.month, self.fecha_nac.day))
+        return None

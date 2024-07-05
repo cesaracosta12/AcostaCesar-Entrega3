@@ -15,13 +15,19 @@
         </header>
         <div class="container py-1 px-lg-5">
             <div class="container p-1 p-lg-1 bg-light rounded-3">    
+                <div class="p-4" style="margin-left: 3rem;     padding: 0.5rem ">
                 <form action={% url "listado" %} method="get">
-                    <div class="p-4">
-                        <h5>Buscar</h5>   
-                        {{formulariobuscar}}
-                        <div class="p-2">
-                            <input type="submit" value="Buscar" class="btn btn-primary">
-                            <a class="btn btn-primary" href={% url "listado" %}>Limpiar búsqueda</a>
+                        <h5>Filtrar</h5>   
+                        <div class="d-flex align-items-center p-2">
+                            <div class="me-2">
+                                {{ formulariobuscar }}
+                            </div>
+                            <div class="me-2">
+                                <input type="submit" value="Buscar" class="btn btn-primary">
+                            </div>
+                            <div>
+                                <a class="btn btn-secondary" href="{% url 'listado' %}">Limpiar búsqueda</a>
+                            </div>
                         </div>    
                     </div>
                 </form>
@@ -30,34 +36,33 @@
         
         <section class="pt-4">
             {% if personas %}
-                {% for persona in personas %}
-                    <div class="container px-lg-5">
-                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                            <div class="col mb-4">
-                                <div class="card h-100">
-                                    <div class="card-body bg-gradient">
-                                        <a href={% url "detalleprofesional" persona.id %} style="text-decoration:none;">
-                                            <img src="{{ persona.avatar_persona.url }}" alt="avatar_persona" height="20px" class="profile-image" >
-                                            <div class="text-left">
-                                                <h5>{{ persona.apellido }}, {{ persona.nombre }}</h5>
-                                            </div>
-                                            <div class="text-left">
-                                                <b><i class='bx bxs-briefcase-alt-2' style='color:#470b60'></i>   {{ persona.servicio }} <br> 
-                                                    <i class='bx bx-clipboard'style='color:#470b60'></i>   Matrcula {{ persona.matricula }}
-                                                </b>
-                                            </div>
-                                            <p class="mb-2 text-left">
-                                                <i class='bx bxs-phone' style='color:#470b60'></i>   {{ persona.telefono }} <br>
-                                                <i class='bx bx-current-location' style='color:#470b60'></i>   {{ persona.ciudad }}, {{ persona.provincia }}    <br>
-                                                <i class='bx bx-time-five' style='color:#470b60'></i>   {{ persona.disponibilidad }}
-                                            </p>
-                                        </a>    
-                                    </div>
+            <div class="container px-lg-5">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    {% for persona in personas %}
+                        <div class="col mb-4">
+                            <div class="card h-100">
+                                <div class="card-body bg-gradient">
+                                    <a href="{% url 'detalleprofesional' persona.id %}" style="text-decoration:none;">
+                                        <img src="{{ persona.avatar_persona.url }}" alt="avatar_persona" height="20px" class="profile-image">
+                                        <div class="text-left">
+                                            <h5>{{ persona.apellido }}, {{ persona.nombre }}</h5>
+                                        </div>
+                                        <div class="text-left">
+                                            <b><i class='bx bxs-briefcase-alt-2' style='color:#470b60'></i> {{ persona.servicio }} <br>
+                                            <i class='bx bx-clipboard' style='color:#470b60'></i> Matrícula {{ persona.matricula }}</b>
+                                        </div>
+                                        <p class="mb-2 text-left">
+                                            <i class='bx bxs-phone' style='color:#470b60'></i> {{ persona.telefono }} <br>
+                                            <i class='bx bx-current-location' style='color:#470b60'></i> {{ persona.ciudad }}, {{ persona.provincia }} <br>
+                                            <i class='bx bx-time-five' style='color:#470b60'></i> {{ persona.disponibilidad }}
+                                        </p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
             {% else %}
                 <div class="container py-5 px-lg-5">
                     <div class="container p-5 p-lg-5 bg-light rounded-3 text-dark text-center">  

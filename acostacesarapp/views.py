@@ -2,13 +2,11 @@ from django.shortcuts import render,redirect
 from .models import Persona
 from .forms import CrearPersonaFormulario,BuscarPorServicio
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 def inicio(request):  
-    if request.user.is_authenticated:
-        return render(request,'acostacesarapp/index_user_auth.html')
-    else:
-        return render(request,'acostacesarapp/index.html')
+    return render(request,'acostacesarapp/index.html')
 
 def contacto(request):
     return render(request,'acostacesarapp/contacto.html')
@@ -26,7 +24,7 @@ def cargarnuevo(request):
                                 dni = datos.get("dni"),
                                 nombre = datos.get("nombre"), 
                                 apellido = datos.get("apellido"),
-                                # fecha_nac = datos.get("fecha_nac"),
+                                fecha_nac = datos.get("fecha_nac"),
                                 nacionalidad =datos.get("nacionalidad"),
                                 telefono = datos.get("telefono"),
                                 correo = datos.get('correo'),
@@ -63,3 +61,8 @@ class DetalleProfesional(DetailView):
     model = Persona
     template_name = 'acostacesarapp/detalleprofesional.html'
     
+# class CrearPersona(CreateView):
+#     model = Persona
+#     form_class = CrearPersonaFormulario
+#     template_name = 'acostacesarapp/cargarnuevo.html'
+#     success_url = 'registro/'

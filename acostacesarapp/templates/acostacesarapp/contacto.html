@@ -4,33 +4,33 @@
     <title>Contacto</title>
 {% endblock titulo %}
 {% block main %}
-    <body>
-        <main>
-            <header class="py-5">
-                <div class="container px-lg-5">
-                    <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-                        <div class="m-4 m-lg-5">
-                            <h1 class="display-5 fw-bold">Acosta Cesar Oscar</h1>
-                            <div style="display: flex; justify-content: center;">
-
-                                <img src={% static "assets/profile_picture.jpg" %} alt="center"  class="perfil" >
-                            </div>
-                            <p class="fs-4">
-                                Hola mi nombre es Cesar Acosta, vivo en Cordoba Capital y tengo 30 años. <br>
-                                Soy Analista de testing QA Manual y Automation SemiSenior <br>
-                                Este es mi primer curso de programacion en Python y me esta gustando mucho. <br>
-                                Estoy en busqueda laboral, ya sea como analista de testing o para comenzar como programador. <br>
-                                <br>
-                                Dejo aqui mis datos de contacto por si me queres dar una mano: <br>
-                                <i class='bx bx-envelope' ></i> Correo: ocesaracosta@gmail.com <br>
-                                <i class='bx bxs-phone' ></i> Telefono: (549) 3513855340 <br>
-                                <i class='bx bx-current-location' ></i> Ubicacion: Cordoba, Cordoba, Argentina <br>
-                            </p>
-                        </div>
+<main>
+    <header class="py-5">
+        <div class="container px-lg-5">
+            <div class="p-4 p-lg-5 bg-light rounded-3 text-center shadow-sm">
+                <div class="m-4 m-lg-5">
+                    <h1 class="display-5 fw-bold">Acosta Cesar Oscar</h1>
+                    <div class="d-flex justify-content-center mb-4">
+                        <img src="{% static 'assets/profile_picture.jpg' %}" alt="Cesar Acosta" class="perfil rounded-circle">
                     </div>
+                    <p class="fs-4">
+                        ¡Hola! Mi nombre es Cesar Acosta, tengo 30 años y vivo en Córdoba Capital. Estudio la carrera de Ingenieria en Sistemas en la UTN Cordoba.
+                        Soy Analista de Testing QA Manual y Automation SemiSenior y cuento con más de 6 años de experiencia en el puesto.
+                    </p>
+                    <p class="fs-4">
+                        Este es mi primer curso de programación utilizando Python, estoy contento porque aprendi mucho durante el cursado y tengo el objetivo de descubir mucho más todavia sobre la programacion.
+                    </p>
+                    <h3 class="fw-bold">Datos de contacto</h3>
+                    <p class="fs-4">
+                        <i class='bx bx-envelope'></i> Correo: <a href="mailto:ocesaracosta@gmail.com" class="text-decoration-none">ocesaracosta@gmail.com</a><br>
+                        <i class='bx bxs-phone'></i> Teléfono: <a href="tel:+5493513855340" class="text-decoration-none">(549) 3513855340</a><br>
+                        <i class='bx bxl-github'></i> Mi GitHub: <a href="https://github.com/cesaracosta12" class="text-decoration-none">cesaracosta12</a><br>
+                        <i class='bx bxl-linkedin-square' ></i> Mi LinkedIn: <a href="https://www.linkedin.com/in/cesar-acosta-789910152/" class="text-decoration-none">Cesar Acosta</a><br>
+                        <i class='bx bx-current-location'></i> Ubicación: Córdoba, Córdoba, Argentina<br>
+                    </p>
                 </div>
-            </header>
-        </main>
-
-    </body>
+            </div>
+        </div>
+    </header>
+</main>
 {% endblock main %}

@@ -7,30 +7,37 @@
 </title>
 {% endblock titulo %}
 
+{% block main %}
 <body>
     <main>
-        {% block main %}
-            <header class="py-5">
-                <div class="container px-lg-5">
-                    <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
-                        <div class="m-4 m-lg-5">
-                            <h3>Registrar Usuario</h3>
-                            <form action={% url "registro" %} method="POST"  >
-                                {% csrf_token %}
-                                <div style="display:inline-block">
-                                    <div style="text-align:left ">
-                                        Nombre de Usuario:   {{formulario_registro.username}} <br>
-                                        Correo electronico:  {{formulario_registro.email}} <br>
-                                        Contraseña :         {{formulario_registro.password1}} <br>
-                                        Repita Contraseña:   {{formulario_registro.password2}} <br>                                    
-                                </div>       
-                                <br>
-                                <input type="submit" class="btn btn-primary" value="Registrar">                                                       
-                            </form>
-                        </div>
+        <header class="py-5">
+            <div class="container px-lg-5">
+                <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
+                    <h1>Registrar usuario</h1>
+                </div>
+            </div>
+        </header>
+        <section class="py-5">
+            <div class="container px-lg-5">
+                <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
+                    <div class="m-4 m-lg-5">
+                        <form action={% url "registro" %} method="POST"  >
+                            {% csrf_token %}
+                            <div style="display:inline-block">
+                                <div style="text-align:left ">
+                                    Usuario   {{formulario_registro.username}} <br>
+                                    Correo electronico  {{formulario_registro.email}} <br>
+                                    Contraseña         {{formulario_registro.password1}} <br>
+                                    Repita Contraseña   {{formulario_registro.password2}} <br>                                    
+                                </div>
+                            </div>       
+                            <br>
+                            <input type="submit" class="btn btn-primary btn-lg" style="margin-top: 3rem;" value="Registrar">                                                       
+                        </form>
                     </div>
                 </div>
-            </header> 
-        {% endblock main %}
+            </div>
+        </section> 
     </main>
 </body>
+{% endblock main %}
