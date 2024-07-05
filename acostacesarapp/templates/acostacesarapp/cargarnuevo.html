@@ -1,53 +1,81 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block titulo %}
-    <title>Registra tus datos</title>
+    <title>Registrar</title>
 {% endblock titulo %}
 
 {% block main %}
 <body>
     <main>
-        <div class="container py-5 px-lg-5">
-            <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-                <h1 class="display-5 fw-bold">Registra tus datos</h1>
+        <header class="py-5">
+            <div class="container px-lg-5">
+                <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
+                    <h1>Registra tus datos</h1>
+                </div>
             </div>
-        </div>
-    <section class="pt-4">
-        <div class="container py-5 px-lg-5">
-        <div class="container p-4 p-lg-5 bg-light rounded-3">    
-                    <form action={%url "cargarnuevo"%} method = "post">
+        </header>
+        <section class="py-5" >
+            <div class="container px-lg-5">
+                <div class="p-4 bg-light rounded-3" >
+                    <form action="{% url 'cargarnuevo' %}" method="post"  enctype = 'multipart/form-data'>
                         {% csrf_token %}
-                        <div class="featurs-content ">
-                            <div class= "text-dark text-right">
-                                <h5 class="mb-3"><i class='bx bxs-contact' style='color:#470b60' ></i> Datos personales <br></h5>
-                                <div>
-                                    <h6 class="mb-3"> Nombre : {{formulario.nombre}}<br></h6>
-                                    <h6 class="mb-3"> Apellido : {{formulario.apellido}}<br></h6>
-                                    <h6 class="mb-3"> DNI : {{formulario.dni}}<br></h6>
-                                    <h6 class="mb-3"> Edad : {{formulario.edad}}<br></h6>
+                        {% comment %} <div class="row"> {% endcomment %}
+                            <div class="col-md-6 text-dark">
+                                <h5><i class='bx bxs-contact' style='color:#470b60'></i> Datos personales</h5>
+                                <div class="mb-3" >
+                                    <ul class="list-unstyled">
+                                    <li>DNI {{ formulario.dni }} </li>
+                                    <li>Nombre {{ formulario.nombre }} </li>
+                                    <li>Apellido {{ formulario.apellido }} </li>
+                                    <li>Fecha Nacimiento {{ formulario.fecha_nac }} </li>
+                                    <li>Nacionalidad {{ formulario.nacionalidad }} </li>
+                                    </ul>
                                 </div>
-                                <h5 class="mb-3"><i class='bx bxs-phone' style='color:#470b60' ></i> Informacion de contacto <br></h5>
-                                <div>
-                                    <h6 class="mb-3"> Correo : {{formulario.correo}}<br></h6>
-                                    <h6 class="mb-3"> Telefono : {{formulario.telefono}}<br></h6>
-                                    <h6 class="mb-3"> Direccion : {{formulario.direccion}}<br></h6>
+                                
+                                <h5><i class='bx bxs-phone' style='color:#470b60'></i> Información de contacto</h5>
+                                <div class="mb-3">
+                                    <ul class="list-unstyled">
+                                        <li>Telefono {{ formulario.telefono }} </li>
+                                        <li>Correo {{ formulario.correo }} </li>
+                                    </ul>
                                 </div>
-                                <h5 class="mb-3"><i class='bx bxs-briefcase-alt-2' style='color:#470b60'  ></i> Especialidad <br></h5>
-                                <div>
-                                    <h6 class="mb-3"> Especialidad : {{formulario.especialidad}}<br></h6>
-                                    <h6 class="mb-3"> Matricula : {{formulario.matricula}}<br></h6>
+
+                                <h5><i class='bx bx-current-location' style='color:#470b60'></i> Direccion</h5>
+                                <div class="mb-3">
+                                    <ul class="list-unstyled">
+                                        <li>Calle {{ formulario.calle }}  </li>
+                                        <li>Nro {{ formulario.nro }}  </li>
+                                        <li>Piso {{ formulario.piso }}  </li>
+                                        <li>Depto {{ formulario.depto }} </li>
+                                        <li>Ciudad {{ formulario.ciudad }} </li>
+                                        <li>Provincia {{ formulario.provincia }} </li>
+                                    </ul>
+                                </div>
+
+                                <h5><i class='bx bxs-briefcase-alt-2' style='color:#470b60'></i> Informacion laboral</h5>
+                                <div class="mb-3">
+                                    <ul class="list-unstyled">
+                                        <li>Servicio {{ formulario.servicio }} </li>
+                                        <li>Nro de Matricula/Licencia {{ formulario.matricula }} </li>
+                                        <li>Disponibilidad {{ formulario.disponibilidad }} </li>
+                                    </ul>
+                                </div>
+                                <h5><i class='bx bxs-camera' style='color:#470b60'></i> Foto de perfil</h5>
+                                <div class="mb-3">
+                                    <ul class="list-unstyled">
+                                        <li>Foto perfil {{ formulario.avatar_persona }}</li>
+                                    </ul>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="submit" value="Registrar persona" class="btn btn-primary btn-lg">
                                 </div>
                             </div>
-                            <div>
-                                <input type="submit" value="Registrar persona" class="btn btn-primary btn-lg" ></input>
-                            </div>
-                        </div>
+                        {% comment %} </div> {% endcomment %}
                     </form>
                 </div>
-<div></div>
+            </div>
         </section>
     </main>
 </body>
-<div></div>
 {% endblock main %}
-<div></div>

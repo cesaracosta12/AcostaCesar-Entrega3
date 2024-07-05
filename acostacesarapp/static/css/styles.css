@@ -74,7 +74,7 @@
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
   --bs-link-color: #f3c8fd;
-  --bs-link-hover-color: #fee4ff;
+  --bs-link-hover-color: #fb94ff;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
@@ -92,6 +92,7 @@
 }
 
 body {
+  height: 100%;
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
@@ -355,10 +356,19 @@ button,
 select,
 optgroup,
 textarea {
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  margin: 0.1rem;
+  margin-left: 1rem;
+  padding: 5px;
+  border: 1px solid #bb72b541;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #161616;
+  outline: none;
+}
+
+input:focus {
+  border-color: #c972df;
+  box-shadow: 0 0 0 0.2rem rgba(41, 1, 53, 0.25);
 }
 
 button,
@@ -4152,7 +4162,7 @@ textarea.form-control-lg {
 
 .card {
   --bs-card-spacer-y: 1rem;
-  --bs-card-spacer-x: 1rem;
+  --bs-card-spacer-x: 3rem;
   --bs-card-title-spacer-y: 0.5rem;
   --bs-card-border-width: 1px;
   --bs-card-border-color: var(--bs-border-color-translucent);
@@ -4165,7 +4175,9 @@ textarea.form-control-lg {
   --bs-card-cap-color: ;
   --bs-card-height: ;
   --bs-card-color: ;
-  --bs-card-bg: #8564aa;
+  --bs-link-color: #000000;
+  --bs-link-hover-color: #a366d6;
+  --bs-card-bg: #e8e6ff;
   --bs-card-img-overlay-padding: 1rem;
   --bs-card-group-margin: 0.75rem;
   position: relative;
@@ -4178,6 +4190,7 @@ textarea.form-control-lg {
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
+  text-decoration: none;
 }
 .card > hr {
   margin-right: 0;
@@ -5797,6 +5810,7 @@ textarea.form-control-lg {
   position: relative;
   width: 100%;
   overflow: hidden;
+  border-radius: 8px
 }
 .carousel-inner::after {
   display: block;
@@ -5911,14 +5925,6 @@ textarea.form-control-lg {
   background-size: 100% 100%;
 }
 
-/* rtl:options: {
-  "autoRename": true,
-  "stringMap":[ {
-    "name"    : "prev-next",
-    "search"  : "prev",
-    "replace" : "next"
-  } ]
-} */
 .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
 }
@@ -7661,7 +7667,7 @@ textarea.form-control-lg {
 }
 
 .mb-3 {
-  margin-bottom: 1rem !important;
+  padding-left: 2rem;
 }
 
 .mb-4 {
@@ -7934,8 +7940,8 @@ textarea.form-control-lg {
 }
 
 .py-5 {
-  padding-top: 3rem !important;
-  padding-bottom: 3rem !important;
+  padding-top: 2rem !important;
+  padding-bottom: 1rem !important;
 }
 
 .pt-0 {
@@ -11559,4 +11565,132 @@ textarea.form-control-lg {
   height: 4rem;
   width: 4rem;
   font-size: 2rem;
+}
+
+.miscolumnas {
+  display: flex;
+  padding: 20px;
+  margin: 10px;
+}
+
+.navavatar {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: #20c997 solid 2px;
+  object-fit: cover;
+  clip-path: circle(50% at 50% 50%);
+}
+
+.avatar {
+  width: 30% ;
+  border-radius: #20c997 solid 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+  clip-path: circle(50% at 50% 50%);
+}
+
+
+.perfil {
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  border: #fdbae9 solid 5px;
+}
+
+.mibox {
+  display:flex;
+  align-items: stretch;
+  margin-right: auto;
+  margin-left: auto;
+  align-content: space-between;
+}
+
+/* Estilos para la imagen de perfil */
+.profile-image {
+  width: 150px; /* Ancho deseado */
+  height: 150px; /* Altura deseada */
+  border-radius: 50%; /* Forma redonda */
+  object-fit: cover; /* Ajuste para cubrir el contenedor */
+  border: 2px solid #fff; /* Borde blanco */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo para cambiar el cursor al pasar por encima */
+.profile-image:hover {
+  cursor: pointer;
+  opacity: 0.8; /* Reducir opacidad al pasar el cursor */
+}
+
+/* Estilo para el contenedor principal */
+.profile-container {
+  background-color: #f8f9fa; /* Color de fondo */
+  border-radius: 15px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+/* Estilos para el contenido */
+.profile-details {
+  margin-top: 20px; /* Margen superior */
+}
+
+/* Estilos para los encabezados */
+.profile-header {
+  font-size: 24px; /* Tamaño de fuente del encabezado */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Estilos para la lista de detalles */
+.profile-details ul {
+  list-style: none; /* Quitar viñetas de la lista */
+  padding: 0; /* Quitar relleno */
+}
+
+/* Estilos para los elementos de la lista */
+.profile-details li {
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Estilos para los detalles de contacto */
+.profile-contact-details {
+  margin-top: 10px; /* Margen superior */
+}
+
+/* Estilos para el título de los detalles de contacto */
+.profile-contact-details h3 {
+  font-size: 18px; /* Tamaño de fuente */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+html, body {
+  /* height: 100%; */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui;
+  background-color: #f8f9fa;
+
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1; 
+}
+
+footer {
+  background-color: #343a40; 
+  padding: 20px 0;
+}
+.perfil {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }

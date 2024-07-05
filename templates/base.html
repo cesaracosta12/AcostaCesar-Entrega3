@@ -7,13 +7,12 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         {% block titulo %}
-        <title>3ra Entrega</title>
+            <title>Entrega FINAL</title>
         {% endblock titulo %}
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href= {% static "assets/favicon.ico" %} />
         <!-- Bootstrap icons-->
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" /> {% endcomment %}
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href={% static "css/styles.css" %} rel="stylesheet" />
     </head>
@@ -24,65 +23,92 @@
                 <a class="navbar-brand" href={% url "inicio" %} style='color:#7dcbc0'> 
                     <h5>
                         <i class='bx bxs-star' style='color:#7dcbc0'></i>
-                        <i class='bx bxs-star' style='color:#ffff'></i>
-                        <i class='bx bxs-star' style='color:#7dcbc0'></i> La Tercera Entrega
+                        <i class='bx bxs-star' style='color:#ffff'  ></i>
+                        <i class='bx bxs-star' style='color:#7dcbc0'></i> 
+                        Laburo Argentino
                     </h5>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href={% url "inicio" %}>Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link active" href={% url "listado" %}>Ver listado</a></li>
-                        <li class="nav-item"><a class="nav-link active" href={% url "contacto" %}>Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href={% url "inicio" %}>Inicio</a> </li>
+                        <li class="nav-item"><a class="nav-link active" href={% url "listado" %}>Ver listado</a> </li>
+                        <li class="nav-item"><a class="nav-link active" href={% url "contacto" %}>Contacto</a> </li>
+                        {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="btn btn-primary" href={% url "verperfil" %}> 
+                                {% if request.user.datosusuario.avatar %}
+                                <img src={{request.user.datosusuario.avatar.url}} alt="avatar" class="navavatar" height="20px" > 
+                                {% else %}
+                                <i class='bx bxs-user-circle' ></i> 
+                                {% endif %}
+                                {{request.user.username}}
+                            </a>
+                        </li>
+                        <li class="nav-item">        
+                            <form action={% url "logout" %} method="POST">
+                                    {% csrf_token %}
+                                    <input type="submit" class="btn btn-secondary" value="Cerrar sesion">
+                            </form>
+                        </li>
+                        {% else %}
+                            <li class="nav-item"><a class="btn btn-primary" href={% url "login" %}>Iniciar Sesion</a> </li>
+                            <li class="nav-item"><a class="btn btn-primary" href={% url "registro" %}>Registrarse</a> </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- Header-->
+
          <main>
-            {% block main %}
-            
-            {% endblock main %}
+            <div class="wrapper">
+                <div class="content">
+                    {% block main %}
+                    
+                    {% endblock main %}
+                </div>
+            </div>
          </main>
 
-        <!-- Footer-->
-        <footer class="py-5 bg-dark" >
+        <footer class="py-5 bg-dark text-white">
             <div class="container px-lg-5">
-                <div class="row gx-lg-5">               
-                    <div class="col-lg-6 col-xxl-4 mb-5">
-                        <div class="container text-white">
-                            <h5>Entrega 3</h5>
-                            <p class="m-0 text-right text-white">Este <a href="https://github.com/cesaracosta12/AcostaCesar-Entrega3" target="_blank">proyecto</a> esta dedicado a la tercera entrega del curso de programacion en Python de 
-                            <a href="https://www.coderhouse.com/">CoderHouse</a></p>
+                <div class="row gx-lg-5">
+                    <div class="col-lg-4 col-xxl-4 mb-5">
+                        <div class="container">
+                            <h5>Entrega Proyecto Final</h5>
+                            <p class="m-0">
+                                Este <a href="https://github.com/cesaracosta12/AcostaCesar-Entrega3" target="_blank" class="text-white">proyecto</a> está dedicado a la entrega final del curso de programación en Python de 
+                                <a href="https://www.coderhouse.com/" class="text-white">CoderHouse</a>
+                            </p>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="col-lg-4 col-xxl-4 mb-5">
                         <div class="container text-center">
-                            <a class="navbar-brand" href={% url "inicio" %} style='color:#7dcbc0'> 
-                            <i class='bx bxs-star' style='color:#7dcbc0'></i>
-                            <i class='bx bxs-star' style='color:#ffff'></i>
-                            <i class='bx bxs-star' style='color:#7dcbc0'></i> 
-                            <h5>La Tercera Entrega</h5>
+                            <a class="navbar-brand" href="{% url 'inicio' %}" style="color:#7dcbc0;">
+                                <i class="bx bxs-star" style="color:#7dcbc0;"></i>
+                                <i class="bx bxs-star" style="color:#ffff;"></i>
+                                <i class="bx bxs-star" style="color:#7dcbc0;"></i>
+                                <h5>Laburo Argentino</h5>
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xxl-4 mb-5">
-                        <div class="container text-right text-white">
-                            <h5 class="m-0 text-right text-white">Acosta Cesar Oscar</h5>
-                            <p class="m-0 text-right text-white">
+                    <div class="col-lg-4 col-xxl-4 mb-5">
+                        <div class="container text-right">
+                            <h5 class="m-0">Acosta Cesar Oscar</h5>
+                            <p class="m-0">
                                 Analista QA Manual/Automation SemiSenior <br>
-                                <i class='bx bx-envelope' ></i> Correo: ocesaracosta@gmail.com <br>
-                                <i class='bx bxs-phone' ></i> Telefono: (549) 3513855340 <br>
-                                <i class='bx bx-current-location' ></i> Ubicacion: Cordoba, Cordoba, Argentina <br>
+                                <i class="bx bx-envelope"></i> Correo: <a href="mailto:ocesaracosta@gmail.com" class="text-white">ocesaracosta@gmail.com</a> <br>
+                                <i class="bx bxs-phone"></i> Teléfono: <a href="tel:+3513855340" class="text-white">3513855340</a> <br>
+                                <i class="bx bx-current-location"></i> Ubicación: Córdoba, Córdoba, Argentina <br>
                             </p>
-                            <br>[ Open to work ]<br>
-                            <a href= "https://www.linkedin.com/in/cesar-acosta-789910152/" target="_blank"> <i class='bx bxl-linkedin-square' ></i> LinkedIn</a>    
+                            <a href="https://www.linkedin.com/in/cesar-acosta-789910152/" target="_blank" class="text-white"><i class="bx bxl-linkedin-square"></i>LinkedIn</a>
+                            <a href="https://github.com/cesaracosta12" target="_blank" class="text-white"><i class='bx bxl-github'></i>GitHub</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </footer> 
+        </footer>
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

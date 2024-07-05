@@ -8,18 +8,25 @@
         <main>
             <header class="py-5">
                 <div class="container px-lg-5">
-                    <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-                        <div class="m-4 m-lg-5">
-                            <h1 class="display-5 fw-bold">Tus datos se registraron correctamente</h1>
-                            <p class="fs-4">Deseas regresar al menu?</p>
-                            <a class="btn btn-primary" href={% url "inicio" %}>Inicio</a>
-                            <a class="btn btn-primary" href={% url "listado" %}>Ver listado</a>
-
-                        </div>
+                    <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
+                        <h1> Registra tus datos </h1>
                     </div>
                 </div>
             </header>
+            <section class="py-5">
+                <div class="container px-lg-5">
+                    <div class="p-4 bg-light rounded-3 shadow-sm">
+                        <div class="m-4 m-lg-5 text-center">
+                            <h5 class="display-5 fw-bold">Tus datos se registraron correctamente</h5>
+                            <p class="fs-4">¿Deseas regresar al menú?</p>
+                            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                                <a class="btn btn-primary btn-lg me-2" href="{% url 'inicio' %}">Inicio</a>
+                                <a class="btn btn-secondary btn-lg" href="{% url 'listado' %}">Ver Listado</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
-
     </body>
 {% endblock main %}

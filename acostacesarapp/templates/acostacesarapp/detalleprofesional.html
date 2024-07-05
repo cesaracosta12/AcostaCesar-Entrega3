@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    <title>Detalle Profesional</title>
+{% endblock titulo %}
+
+{% block main %}
+    <header class="py-5">
+        <div class="container px-lg-5">
+            <div class="p-4 p-lg-3 bg-light rounded-3 text-center">
+                <h1> Datos del profesional </h1>
+            </div>
+        </div>
+    </header>
+    <section class="py-5">
+        <div class="container px-lg-5">
+            <div class="profile-container" style="padding: 2rem;">
+                <a href={% url "listado" %} class="btn btn-secondary"> <i class='bx bx-chevron-left'></i> </a>
+                <div class="row">
+                    <div class="col-md-3" style="padding-left: 5rem;">
+                        <img src="{{ persona.avatar_persona.url }}" alt="avatar" class="profile-image">
+                        <ul class="list-unstyled" style="margin-left:1rem">
+                            <li><b>{{ persona.servicio }}</b></li>
+                            <li>Matrícula Nro {{ persona.matricula }}</li>
+                            <li>Disponibilidad <b>{{ persona.disponibilidad }}</b></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-9" style="padding-left: 5rem;">
+                        <div class="profile-details">
+                            <h1 class="profile-header">{{ persona.apellido }} {{ persona.nombre }}</h1>
+                            <div class="profile-contact-details">
+                                <h3>Información de contacto</h3>
+                                <ul class="list-unstyled" style="margin-left:2em">
+                                    <li><b>DNI:</b> {{ persona.dni }}</li>
+                                    <li><b>Edad:</b> {{ persona.edad }}</li>
+                                    <li><b>Nacionalidad:</b> {{ persona.nacionalidad }}</li>
+                                    <li><b>Correo:</b> {{ persona.correo }}</li>
+                                    <li><b>Teléfono:</b> {{ persona.telefono }}</li>
+                                    <li>
+                                        <b>Dirección:</b>
+                                        {{ persona.calle }} {{ persona.nro }}
+                                        {% if persona.piso %}
+                                        Piso {{ persona.piso }}, Depto {{ persona.depto }}
+                                        {% endif %}
+                                    </li>
+                                    <li><b>Ciudad:</b> {{ persona.ciudad }}, {{ persona.provincia }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+{% endblock main %}
